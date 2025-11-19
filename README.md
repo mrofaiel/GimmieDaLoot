@@ -11,11 +11,12 @@ A 3D Unity game that consists of four cat characters that are based on each grou
 - One playable cat that has basic movement (i.e. walk), a working weapon, and 3rd person camera
 - One zombie dog enemy that chases the player and bites
 - One loot to pickup
+- Basic health bar and lighting
 
 ## General Goals
-- **Marcelina:** 
-- **Zahraa:**
-- **Samantha:**
-- **Kevin:**
+- **Marcelina:** Create a graveyard/old city map. Will add a piece of loot to the map that  when it collides with the player, the item has been collected.
+- **Zahraa:** Will create a dog that will have a radius that detects player tag if the player is within it's radius. This dog will then begin to attack the player. 
+- **Samantha:** Will design the cat character, zombie dog enemy, gun weapon, and UI for the HUD.  
+- **Kevin:** Will create the fixed third person camera that is conncected to the cat and has ability to hold a weapon that actually works and inflicts damage.
 
 
