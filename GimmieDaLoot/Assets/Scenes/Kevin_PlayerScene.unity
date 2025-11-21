@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 102860715}
   - component: {fileID: 102860714}
   - component: {fileID: 102860718}
+  - component: {fileID: 102860719}
+  - component: {fileID: 102860720}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -257,6 +259,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &102860719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102860712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f67260f72f5146fca2973988037e0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 6
+  gravity: -9.81
+  jumpHeight: 1.5
+  cameraTransform: {fileID: 1463867064}
+  mouseSensitivity: 150
+--- !u!143 &102860720
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102860712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.49999997
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &381639729
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,11 +558,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.5
-  far clip plane: 30
+  near clip plane: 1
+  far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -541,13 +586,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463867061}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.047252472, y: -0.13233274, z: 0.006803504, w: 0.990055}
-  m_LocalPosition: {x: 2.015073, y: 0.48099995, z: -4.1413884}
+  m_LocalRotation: {x: 0.054964785, y: -0.13227576, z: 0.007834333, w: 0.98965687}
+  m_LocalPosition: {x: 1.499, y: 0.47799993, z: -4.257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 102860717}
-  m_LocalEulerAnglesHint: {x: 5.472, y: -4.548, z: 0.056}
+  m_LocalEulerAnglesHint: {x: 6.365, y: -15.223, z: 0.056}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
