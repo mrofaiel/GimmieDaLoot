@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 102860716}
   - component: {fileID: 102860715}
   - component: {fileID: 102860714}
-  - component: {fileID: 102860718}
   - component: {fileID: 102860719}
   - component: {fileID: 102860720}
   m_Layer: 0
@@ -232,33 +231,6 @@ Transform:
   - {fileID: 1463867064}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 10.676, z: 0}
---- !u!54 &102860718
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102860712}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &102860719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,11 +243,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f67260f72f5146fca2973988037e0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCameraX: 10
+  maxCameraX: 15
   moveSpeed: 6
   gravity: -9.81
-  jumpHeight: 1.5
+  jumpForce: 2
+  jumpCooldown: 1
   cameraTransform: {fileID: 1463867064}
-  mouseSensitivity: 150
+  lookSpeed: 80
 --- !u!143 &102860720
 CharacterController:
   m_ObjectHideFlags: 0
