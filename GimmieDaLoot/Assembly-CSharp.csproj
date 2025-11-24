@@ -59,18 +59,25 @@
     <UnityVersion>2022.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/kevinle/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.3/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/kevinle/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.0/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.17f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.17f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Kevin_Scripts/PlayerMovement.cs" />
+    <Compile Include="Assets/Low Poly Guns/Scripts/GunView.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/PlayerCamera.cs" />
     <Compile Include="Assets/Kevin_Scripts/HandFollow.cs" />
+    <Compile Include="Assets/Kevin_Scripts/RifleShooter.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/ThirdPersonCamera.cs" />
+    <Compile Include="Assets/Kevin_Scripts/Bullet.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/MovePlayerInput.cs" />
+    <Compile Include="Assets/Kevin_Scripts/PlayerHealth.cs" />
+    <Compile Include="Assets/Kevin_Scripts/CameraSwitcher.cs" />
     <Compile Include="Assets/zahraa_scripts/DogMovement.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/CreatureMover.cs" />
+    <Compile Include="Assets/Low Poly Guns/Scripts/GunsMenu.cs" />
+    <Compile Include="Assets/Kevin_Scripts/EnemyHealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/AnimalAssets/Animals_FREE/Render_Pipeline_Convert/Documentation.txt" />
@@ -928,6 +935,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
       <Private>False</Private>
@@ -936,12 +947,12 @@
       <HintPath>Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
@@ -954,10 +965,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
