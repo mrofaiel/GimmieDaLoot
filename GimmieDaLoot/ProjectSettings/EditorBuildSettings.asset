@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Marcelina_Scene.unity
+    guid: f12a6838f44a24f4295cff12e697cec7
   m_configObjects: {}
