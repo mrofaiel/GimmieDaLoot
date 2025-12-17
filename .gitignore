@@ -1,11 +1,50 @@
+# ================
+# Unity Generated
+# ================
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-[Uu]ser[Ss]ettings/
 MemoryCaptures/
+UserSettings/
+
+# ================
+# OS / Editor Files
+# ================
+.DS_Store
 .vs/
 .idea/
-.DS_Store
+*.suo
+*.user
+*.userprefs
+
+# ================
+# Auto-generated project files
+# ================
+*.csproj
+*.unityproj
+*.sln
+*.tmp
+*.pidb
+*.booproj
+*.svd
+
+# ================
+# Rider / VSCode
+# ================
+*.DotSettings.user
+*.orig
+
+# ================
+# Unity Build Pipeline Cache
+# ================
+ScriptableBuildPipeline/
+AddressableAssetsData/*/*.bin*
+
+# ================
+# Crash / Debug Logs
+# ================
+sysinfo.txt
