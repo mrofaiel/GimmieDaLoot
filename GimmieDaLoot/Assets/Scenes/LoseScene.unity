@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9763a926da8e14802826119446da1d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Kevin_PlayerScene
+  sceneName: MainMenu
   enableSpaceActivation: 1
 --- !u!4 &758867143
 Transform:
