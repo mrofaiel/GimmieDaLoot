@@ -1704,6 +1704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ApplePie3D
       objectReference: {fileID: 0}
+    - target: {fileID: 5783649133639077386, guid: 587a15022aa2e4eb18e9564aecdb9012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6559623230707848368, guid: 587a15022aa2e4eb18e9564aecdb9012, type: 3}
       propertyPath: m_LocalPosition.x
       value: 565
