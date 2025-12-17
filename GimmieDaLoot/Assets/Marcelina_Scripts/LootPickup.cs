@@ -8,17 +8,20 @@ public class LootPickup : MonoBehaviour
     public float rotateSpeed = 60f;
 
     [Header("Loot Info")]
-    public string lootId = "DefaultLoot";   // can change per instance later
+    public string lootId = "DefaultLoot";   // set per loot prefab (ApplePie, Matcha, etc.)
+
+    [Header("Pickup Sound (optional)")]
+    public AudioClip pickupSound;           // sound to play when actually picked up
 
     private AudioSource audioSource;
 
     private void Reset()
     {
-        // Ensure collider is trigger
+        // Ensure collider is a trigger
         var col = GetComponent<Collider>();
         col.isTrigger = true;
 
-        // Make sure the AudioSource is set up for 3D loot hum
+        // Set up the AudioSource for the idle 3D hum
         var a = GetComponent<AudioSource>();
         a.playOnAwake = true;
         a.loop = true;
@@ -50,16 +53,31 @@ public class LootPickup : MonoBehaviour
 
         Debug.Log($"Picked up loot: {lootId}");
 
-        // Stop the humming sound
+        // 🔹 1. Add this loot to the inventory
+        if (InventoryManager.Instance != null)
+        {
+            InventoryManager.Instance.AddLoot(lootId);
+        }
+        else
+        {
+            Debug.LogWarning("No InventoryManager.Instance found in scene!");
+        }
+
+        // 🔹 2. Stop the idle hum and optionally play a pickup sound
         if (audioSource != null)
         {
             audioSource.Stop();
+
+            if (pickupSound != null)
+            {
+                audioSource.PlayOneShot(pickupSound);
+            }
         }
 
-        // TODO later: InventoryManager.Instance.AddLoot(lootId);
-
-        // Hide / disable the pickup
-        gameObject.SetActive(false);
+        // 🔹 3. Remove the pickup from the world
+        // (small delay so pickupSound can start)
+        Destroy(gameObject, 0.1f);
     }
 }
+
 
