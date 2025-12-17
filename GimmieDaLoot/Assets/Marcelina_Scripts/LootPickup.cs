@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(AudioSource))]
 public class LootPickup : MonoBehaviour
 {
     [Header("Spin")]
@@ -9,11 +10,26 @@ public class LootPickup : MonoBehaviour
     [Header("Loot Info")]
     public string lootId = "DefaultLoot";   // can change per instance later
 
+    private AudioSource audioSource;
+
     private void Reset()
     {
         // Ensure collider is trigger
         var col = GetComponent<Collider>();
         col.isTrigger = true;
+
+        // Make sure the AudioSource is set up for 3D loot hum
+        var a = GetComponent<AudioSource>();
+        a.playOnAwake = true;
+        a.loop = true;
+        a.spatialBlend = 1f;   // 3D
+        a.minDistance = 1f;
+        a.maxDistance = 15f;
+    }
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -24,7 +40,7 @@ public class LootPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Always log who touched us so we can debug
+        // Debug info so you can see what hits it
         Debug.Log($"Loot trigger hit by '{other.name}', root = '{other.transform.root.name}', root tag = {other.transform.root.tag}");
 
         // Check tag on the ROOT object (e.g. Kitty_001), not just the child collider
@@ -34,9 +50,16 @@ public class LootPickup : MonoBehaviour
 
         Debug.Log($"Picked up loot: {lootId}");
 
+        // Stop the humming sound
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+
         // TODO later: InventoryManager.Instance.AddLoot(lootId);
 
-        gameObject.SetActive(false);   // hide pickup
+        // Hide / disable the pickup
+        gameObject.SetActive(false);
     }
 }
 
