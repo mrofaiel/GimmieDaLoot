@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/zahraa_scene.unity
     guid: 56af4d096fef31045b6a04c4c729dc72
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5bb68ef7d2793441a920f49b50ae15d6
   m_configObjects: {}
