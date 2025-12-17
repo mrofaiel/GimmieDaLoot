@@ -59,8 +59,13 @@
     <UnityVersion>2022.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+=======
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+>>>>>>> 678e9cad00509dd5613f0c2229ab45ec93c87ce9
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Kevin_Scripts\PlayerMovement.cs" />
