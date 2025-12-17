@@ -906,9 +906,10 @@ GameObject:
   - component: {fileID: 9008777756127522480}
   - component: {fileID: 6068590409713253420}
   - component: {fileID: -3573316688390140003}
+  - component: {fileID: 466337208291167192}
   m_Layer: 0
   m_Name: Deer_001 (1)
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,6 +1070,22 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &466337208291167192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671342251496376596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972ea7d0727d04c9dbd0b63aedc6aaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  respawnOnDeath: 0
+  respawnPoint: {fileID: 0}
 --- !u!1 &5688105237868267946
 GameObject:
   m_ObjectHideFlags: 0
