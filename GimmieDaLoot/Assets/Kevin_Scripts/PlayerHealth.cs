@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;   // <-- required for scene loading
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("PLAYER DIED!");
+        Debug.Log("PLAYER DIED! Loading LoseScene...");
 
         if (respawnOnDeath && respawnPoint != null)
         {
@@ -45,10 +46,8 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            // Disable controls or show death UI
-            // Example:
-            // GetComponent<PlayerMovement>().enabled = false;
-            // GetComponent<PlayerLook>().enabled = false;
+            // Load the Lose Scene
+            SceneManager.LoadScene("LoseScene");
         }
     }
 

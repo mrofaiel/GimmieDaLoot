@@ -1,4 +1,4 @@
-using UnityEngine;
+// using UnityEngine;
 
 public class AnimalSelector : MonoBehaviour
 {
@@ -19,17 +19,17 @@ public class AnimalSelector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) Next();
     }
 
-    public void Next()
-    {
-        currentIndex = (currentIndex + 1) % animalPrefabs.Length;
-        Show(currentIndex);
-    }
+//     public void Next()
+//     {
+//         currentIndex = (currentIndex + 1) % animalPrefabs.Length;
+//         Show(currentIndex);
+//     }
 
-    public void Prev()
-    {
-        currentIndex = (currentIndex - 1 + animalPrefabs.Length) % animalPrefabs.Length;
-        Show(currentIndex);
-    }
+//     public void Prev()
+//     {
+//         currentIndex = (currentIndex - 1 + animalPrefabs.Length) % animalPrefabs.Length;
+//         Show(currentIndex);
+//     }
 
     // private void Show(int index)
     // {
