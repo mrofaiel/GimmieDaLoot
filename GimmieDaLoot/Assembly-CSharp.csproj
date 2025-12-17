@@ -63,6 +63,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1-x86_64\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Kevin_Scripts\AnimalSelector.cs" />
     <Compile Include="Assets\Kevin_Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\AnimalAssets\Animals_FREE\Scripts\PlayerCamera.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Kevin_Scripts\CameraSwitcher.cs" />
     <Compile Include="Assets\zahraa_scripts\DogMovement.cs" />
     <Compile Include="Assets\AnimalAssets\Animals_FREE\Scripts\CreatureMover.cs" />
+    <Compile Include="Assets\Kevin_Scripts\FunctionCaller.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Marcelina_Scripts\LootPickup.cs" />
     <Compile Include="Assets\Kevin_Scripts\EnemyHealth.cs" />
