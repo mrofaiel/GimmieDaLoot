@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
@@ -19,6 +18,11 @@ public class DogMovement : MonoBehaviour
     [SerializeField] float attackCooldown = 1.2f;
     [SerializeField] float biteRange = 1.5f;
 
+    [Header("Animation")]
+    [SerializeField] Animator animator;      // <-- drag child Animator here in Inspector
+    [SerializeField] string vertParam = "Vert";
+    [SerializeField] string stateParam = "State";
+
     Transform player;
     Rigidbody rb;
     bool canAttack = true;
@@ -26,11 +30,14 @@ public class DogMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;                       // <- we'll move via transform, not physics
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     void Update()
     {
+        bool isMovingThisFrame = false;
+
         if (player == null)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius);
@@ -42,6 +49,8 @@ public class DogMovement : MonoBehaviour
                     break;
                 }
             }
+
+            UpdateAnimator(false);
             return;
         }
 
@@ -50,9 +59,11 @@ public class DogMovement : MonoBehaviour
         if (distance > detectionRadius * 1.5f)
         {
             player = null;
+            UpdateAnimator(false);
             return;
         }
 
+        // Look at player
         Vector3 direction = (player.position - transform.position);
         direction.y = 0f;
         if (direction.sqrMagnitude > 0.01f)
@@ -61,16 +72,30 @@ public class DogMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * turnSpeed);
         }
 
+        // Move toward player, but don't overlap too much
         if (distance > stopDistance)
         {
             Vector3 move = transform.forward * chaseSpeed * Time.deltaTime;
-            rb.MovePosition(rb.position + move);
+            transform.position += move;              // <- no physics push
+            isMovingThisFrame = true;
         }
 
+        // Attack when close
         if (distance <= biteRange && canAttack)
         {
             StartCoroutine(Attack());
         }
+
+        UpdateAnimator(isMovingThisFrame);
+    }
+
+    void UpdateAnimator(bool isMoving)
+    {
+        if (animator == null) return;
+
+        // 0 = idle, ~1 = moving
+        animator.SetFloat(vertParam, isMoving ? 1f : 0f);
+        animator.SetFloat(stateParam, isMoving ? 1f : 0f);
     }
 
     IEnumerator Attack()
