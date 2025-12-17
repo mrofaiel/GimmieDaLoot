@@ -69,6 +69,7 @@
     <Compile Include="Assets\Kevin_Scripts\HandFollow.cs" />
     <Compile Include="Assets\Kevin_Scripts\RifleShooter.cs" />
     <Compile Include="Assets\AnimalAssets\Animals_FREE\Scripts\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\zahraa_scripts\EnemyHealthTest.cs" />
     <Compile Include="Assets\Kevin_Scripts\Bullet.cs" />
     <Compile Include="Assets\AnimalAssets\Animals_FREE\Scripts\MovePlayerInput.cs" />
     <Compile Include="Assets\Kevin_Scripts\PlayerHealth.cs" />
@@ -92,6 +93,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\nappin\WeaponStylizedPack\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
