@@ -79,6 +79,7 @@
     <Compile Include="Assets/Kevin_Scripts/CameraSwitcher.cs" />
     <Compile Include="Assets/zahraa_scripts/DogMovement.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/CreatureMover.cs" />
+    <Compile Include="Assets/Kevin_Scripts/FunctionCaller.cs" />
     <Compile Include="Assets/Low Poly Guns/Scripts/GunsMenu.cs" />
     <Compile Include="Assets/Kevin_Scripts/EnemyHealth.cs" />
   </ItemGroup>
