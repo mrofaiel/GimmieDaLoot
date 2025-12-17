@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972ea7d0727d04c9dbd0b63aedc6aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 15
   currentHealth: 0
   respawnOnDeath: 0
   respawnPoint: {fileID: 0}
