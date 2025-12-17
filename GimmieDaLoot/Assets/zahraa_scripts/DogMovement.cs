@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(EnemyHealthTest))]
 public class DogMovement : MonoBehaviour
 {
     [Header("Detection Settings")]
@@ -19,25 +20,36 @@ public class DogMovement : MonoBehaviour
     [SerializeField] float biteRange = 1.5f;
 
     [Header("Animation")]
-    [SerializeField] Animator animator;      // <-- drag child Animator here in Inspector
+    [SerializeField] Animator animator;     // drag Dog_001 (with Animator) here
     [SerializeField] string vertParam = "Vert";
     [SerializeField] string stateParam = "State";
 
     Transform player;
     Rigidbody rb;
+    EnemyHealthTest health;
     bool canAttack = true;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;                       // <- we'll move via transform, not physics
+        rb.isKinematic = true;                      // we move via transform, not physics forces
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        health = GetComponent<EnemyHealthTest>();
     }
 
     void Update()
     {
+        // If this dog is dead, do nothing
+        if (health != null && health.IsDead)
+        {
+            UpdateAnimator(false);
+            return;
+        }
+
         bool isMovingThisFrame = false;
 
+        // Find player if we don't have one yet
         if (player == null)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius);
@@ -56,6 +68,7 @@ public class DogMovement : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
 
+        // Lose target if they get far away
         if (distance > detectionRadius * 1.5f)
         {
             player = null;
@@ -63,7 +76,7 @@ public class DogMovement : MonoBehaviour
             return;
         }
 
-        // Look at player
+        // Rotate toward player
         Vector3 direction = (player.position - transform.position);
         direction.y = 0f;
         if (direction.sqrMagnitude > 0.01f)
@@ -76,7 +89,7 @@ public class DogMovement : MonoBehaviour
         if (distance > stopDistance)
         {
             Vector3 move = transform.forward * chaseSpeed * Time.deltaTime;
-            transform.position += move;              // <- no physics push
+            transform.position += move;             // kinematic move
             isMovingThisFrame = true;
         }
 
@@ -93,18 +106,30 @@ public class DogMovement : MonoBehaviour
     {
         if (animator == null) return;
 
-        // 0 = idle, ~1 = moving
+        // 0 = idle, 1 = moving/running
         animator.SetFloat(vertParam, isMoving ? 1f : 0f);
         animator.SetFloat(stateParam, isMoving ? 1f : 0f);
     }
 
-    IEnumerator Attack()
+IEnumerator Attack()
+{
+    canAttack = false;
+
+    Debug.Log("Dog bites the player!");
+
+    if (player != null)
     {
-        canAttack = false;
-        Debug.Log("Dog bites the player!");
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
+        PlayerHealth ph = player.GetComponent<PlayerHealth>();
+        if (ph != null)
+        {
+            ph.TakeDamage(biteDamage);  // <-- THIS DOES REAL DAMAGE
+        }
     }
+
+    yield return new WaitForSeconds(attackCooldown);
+    canAttack = true;
+}
+
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()

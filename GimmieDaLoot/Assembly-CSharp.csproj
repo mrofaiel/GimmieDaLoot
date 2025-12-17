@@ -71,9 +71,11 @@
     <Compile Include="Assets/Kevin_Scripts/RifleShooter.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/ThirdPersonCamera.cs" />
     <Compile Include="Assets/Kevin_Scripts/PlayerCannon_Movement.cs" />
+    <Compile Include="Assets/zahraa_scripts/EnemyHealthTest.cs" />
     <Compile Include="Assets/Kevin_Scripts/Bullet.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/MovePlayerInput.cs" />
     <Compile Include="Assets/Kevin_Scripts/PlayerHealth.cs" />
+    <Compile Include="Assets/Waldemarst/Broccoli/Controller/BroccoTreeController_1_2_5.cs" />
     <Compile Include="Assets/Kevin_Scripts/CameraSwitcher.cs" />
     <Compile Include="Assets/zahraa_scripts/DogMovement.cs" />
     <Compile Include="Assets/AnimalAssets/Animals_FREE/Scripts/CreatureMover.cs" />
@@ -87,6 +89,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets/Waldemarst/JapaneseGardenPackage/Textures/Credits.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
