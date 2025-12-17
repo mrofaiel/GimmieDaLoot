@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1878426569278912010}
   - component: {fileID: 6214191542571385121}
   - component: {fileID: 3687259658810081622}
+  - component: {fileID: 8719233805691653452}
   m_Layer: 0
   m_Name: shuriken (1)
   m_TagString: Untagged
@@ -99,5 +100,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  damage: 0.1
+  damage: 2
   lifeTime: 3
+--- !u!136 &8719233805691653452
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860483170831414670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.10035949
+  m_Height: 0.20107907
+  m_Direction: 1
+  m_Center: {x: 0.0000029152725, y: 0.00002248958, z: 0.0004606023}
