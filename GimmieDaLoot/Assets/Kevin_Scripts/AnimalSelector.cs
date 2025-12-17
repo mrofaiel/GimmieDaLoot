@@ -1,4 +1,4 @@
-// using UnityEngine;
+using UnityEngine;
 
 public class AnimalSelector : MonoBehaviour
 {
@@ -19,41 +19,19 @@ public class AnimalSelector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) Next();
     }
 
-//     public void Next()
-//     {
-//         currentIndex = (currentIndex + 1) % animalPrefabs.Length;
-//         Show(currentIndex);
-//     }
+    public void Next()
+    {
+        currentIndex = (currentIndex + 1) % animalPrefabs.Length;
+        Show(currentIndex);
+    }
 
-//     public void Prev()
-//     {
-//         currentIndex = (currentIndex - 1 + animalPrefabs.Length) % animalPrefabs.Length;
-//         Show(currentIndex);
-//     }
+    public void Prev()
+    {
+        currentIndex = (currentIndex - 1 + animalPrefabs.Length) % animalPrefabs.Length;
+        Show(currentIndex);
+    }
 
-    // private void Show(int index)
-    // {
-    //     if (Camera.main != null) Camera.main.enabled = false;
-
-    //     if (previewInstance != null) Destroy(previewInstance);
-
-    //     previewInstance = Instantiate(animalPrefabs[index], previewSpawn.position, previewSpawn.rotation);
-
-    //     // Disable all cameras in the spawned animal, then enable only the front view
-    //     var cams = previewInstance.GetComponentsInChildren<Camera>(true);
-    //     foreach (var cam in cams) cam.enabled = false;
-
-    //     Transform front = previewInstance.transform.Find(menuCameraName);
-    //     if (front != null)
-    //     {
-    //         var frontCam = front.GetComponent<Camera>();
-    //         if (frontCam != null) frontCam.enabled = true;
-    //     }
-    //     else
-    //     {
-    //         Debug.LogWarning($"Menu camera '{menuCameraName}' not found on {previewInstance.name}. Enable one manually or rename it.");
-    //     }
-    // }
+    
     private void Show(int index)
 {
     // 1) Remove old preview
