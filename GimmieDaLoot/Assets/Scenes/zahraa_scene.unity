@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.5748165, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3918070679446568666, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5805171565255416180, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,13 +175,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6334276445189320430, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_Name
       value: Kitty_001 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_TagString
@@ -796,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1519938965772377746, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6854912189961563410, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_LocalPosition.x
@@ -958,6 +962,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 503991226661348796, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
+      propertyPath: biteDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1135770719788746731, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -997,6 +1005,22 @@ PrefabInstance:
     - target: {fileID: 1135770719788746731, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350196070529642664, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350196070529642664, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
+      propertyPath: m_Center.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350196070529642664, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
+      propertyPath: m_Center.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350196070529642664, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
+      propertyPath: m_Center.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8808566281618970203, guid: 2dab14d101090844ab05ae6ae6188ce6, type: 3}
       propertyPath: m_Name

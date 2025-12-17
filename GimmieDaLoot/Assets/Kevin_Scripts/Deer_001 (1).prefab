@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972ea7d0727d04c9dbd0b63aedc6aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 15
   currentHealth: 0
   respawnOnDeath: 0
   respawnPoint: {fileID: 0}
@@ -1735,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934215165886544800, guid: 2ee4de86255ac479e8d1050a6652d10d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.56
+      value: -1.7117
       objectReference: {fileID: 0}
     - target: {fileID: 4934215165886544800, guid: 2ee4de86255ac479e8d1050a6652d10d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1743,7 +1743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934215165886544800, guid: 2ee4de86255ac479e8d1050a6652d10d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.15
+      value: 0.198
       objectReference: {fileID: 0}
     - target: {fileID: 4934215165886544800, guid: 2ee4de86255ac479e8d1050a6652d10d, type: 3}
       propertyPath: m_LocalRotation.w

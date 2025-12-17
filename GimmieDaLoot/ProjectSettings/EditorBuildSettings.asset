@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/zahraa_scene.unity
     guid: 56af4d096fef31045b6a04c4c729dc72
+  - enabled: 1
+    path: Assets/Scenes/Marcelina_MapScene.unity
+    guid: 3e88c31e5fabe15459d18008cb25d644
   m_configObjects: {}
