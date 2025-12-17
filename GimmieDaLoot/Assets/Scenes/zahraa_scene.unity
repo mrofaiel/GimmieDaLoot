@@ -181,12 +181,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8891160214433349114, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 26ffea2fe0b9fd248b3386ea84c86d12, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
