@@ -1476,6 +1476,7 @@ GameObject:
   - component: {fileID: 6334276445189320430}
   - component: {fileID: 3918070679446568666}
   - component: {fileID: 4913740109832363950}
+  - component: {fileID: 3858750197323095869}
   m_Layer: 0
   m_Name: Kitty_001
   m_TagString: Player
@@ -1612,6 +1613,29 @@ MonoBehaviour:
   cameraTransform: {fileID: 5855802646233876144}
   lookSpeed: 800
   anim: {fileID: 8891160214433349114}
+--- !u!136 &3858750197323095869
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817498930678936069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7915705456590795581
 GameObject:
   m_ObjectHideFlags: 0
