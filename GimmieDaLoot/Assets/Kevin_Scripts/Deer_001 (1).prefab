@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 5637549400980649452}
   - component: {fileID: 9008777756127522480}
   - component: {fileID: 6068590409713253420}
+  - component: {fileID: -3573316688390140003}
   m_Layer: 0
   m_Name: Deer_001 (1)
   m_TagString: MainCamera
@@ -1045,6 +1046,29 @@ MonoBehaviour:
   cameraTransform: {fileID: 914446249158622812}
   lookSpeed: 800
   anim: {fileID: 3638012304644126628}
+--- !u!136 &-3573316688390140003
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671342251496376596}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5688105237868267946
 GameObject:
   m_ObjectHideFlags: 0
