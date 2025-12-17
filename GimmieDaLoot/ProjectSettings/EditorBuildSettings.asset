@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Marcelina_MapScene.unity
     guid: 3e88c31e5fabe15459d18008cb25d644
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: f99b8c32d29864cab9d301860e38f25b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5bb68ef7d2793441a920f49b50ae15d6
   m_configObjects: {}
