@@ -15,7 +15,7 @@ public class DogMovement : MonoBehaviour
     [SerializeField] float turnSpeed = 10f;
 
     [Header("Attack Settings")]
-    [SerializeField] int biteDamage = 20;
+    [SerializeField] int biteDamage = 1;
     [SerializeField] float attackCooldown = 1.2f;
     [SerializeField] float biteRange = 1.5f;
 

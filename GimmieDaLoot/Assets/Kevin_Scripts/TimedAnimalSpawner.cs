@@ -9,7 +9,7 @@ public class TimedAnimalSpawner : MonoBehaviour
     public Transform spawnPoint;
 
     [Header("Timing")]
-    public float spawnEverySeconds = 10f;
+    public float spawnEverySeconds = 500f;
 
     void Start()
     {

@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalPrefab: {fileID: 7890239903096079705, guid: 46120d0b13e3c4d0b857ef9f9b4396b0, type: 3}
   spawnPoint: {fileID: 9048267280489191503}
-  spawnEverySeconds: 10
+  spawnEverySeconds: 500

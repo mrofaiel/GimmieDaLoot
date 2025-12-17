@@ -85,7 +85,7 @@ CapsuleCollider:
   m_Radius: 1
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 2, y: 3, z: 1}
+  m_Center: {x: 0.5, y: 3, z: 1}
 --- !u!114 &503991226661348796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   chaseSpeed: 4
   stopDistance: 1.5
   turnSpeed: 10
-  biteDamage: 20
+  biteDamage: 1
   attackCooldown: 1.2
   biteRange: 1.5
   animator: {fileID: 4710191839504493147}
