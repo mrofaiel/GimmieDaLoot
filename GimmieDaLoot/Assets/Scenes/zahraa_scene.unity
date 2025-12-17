@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3918070679446568666, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5805171565255416180, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.910363
@@ -174,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_Name
       value: Kitty_001 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
