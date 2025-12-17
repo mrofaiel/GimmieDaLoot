@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Marcelina_Scene.unity
     guid: f12a6838f44a24f4295cff12e697cec7
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: f5c102032c2a4492d9c57b3f463e67d2
+  - enabled: 1
+    path: Assets/Scenes/Kevin_PlayerScene.unity
+    guid: a219a12262b914110a0354448a9bcec8
   m_configObjects: {}
