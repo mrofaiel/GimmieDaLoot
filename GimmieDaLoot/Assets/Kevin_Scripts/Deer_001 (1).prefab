@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5671342251496376596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c67ce836140b4479603ebcf944cddd, type: 3}
   m_Name: 
@@ -1068,10 +1068,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &466337208291167192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972ea7d0727d04c9dbd0b63aedc6aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarController: {fileID: 0}
+  healthBarController: {fileID: 747766248268617611}
   maxHealth: 15
   currentHealth: 0
   respawnOnDeath: 0
@@ -1931,3 +1931,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8330252736907980500, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
   m_PrefabInstance: {fileID: 8070943161128934029}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &747766248268617611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8818427934385016070, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+  m_PrefabInstance: {fileID: 8070943161128934029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c0829339f9d4afdbeca6d359406113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
