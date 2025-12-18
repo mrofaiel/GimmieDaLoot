@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.5748165, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,10 +131,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3913756239110207776, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: camera1
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3918070679446568666, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3918070679446568666, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: healthBarController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913740109832363950, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 2027938986}
     - target: {fileID: 5805171565255416180, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.910363
@@ -175,6 +187,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6205571874476926443, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6334276445189320430, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -185,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817498930678936069, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
       propertyPath: m_TagString
@@ -196,10 +212,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 26ffea2fe0b9fd248b3386ea84c86d12, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 881958157370810400, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+    - {fileID: 3901416303090896284, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5805171565255416180, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027938986}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+--- !u!4 &57527720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5805171565255416180, guid: 0203cbbd6924441dc82f8ab32fe1d0d7, type: 3}
+  m_PrefabInstance: {fileID: 57527719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &292004757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6854912189961563410, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.14407
+      value: 2.62
       objectReference: {fileID: 0}
     - target: {fileID: 6854912189961563410, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_LocalPosition.y
@@ -869,7 +895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6854912189961563410, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.620861
+      value: 11.35
       objectReference: {fileID: 0}
     - target: {fileID: 6854912189961563410, guid: 8a7d03cc181ad4419a4494c895bad190, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1072,6 +1098,98 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2027938985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027938986}
+  - component: {fileID: 2027938988}
+  - component: {fileID: 2027938987}
+  m_Layer: 0
+  m_Name: Main Camera (1)
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2027938986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027938985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.13431762, y: -0.1885681, z: 0.012965519, w: 0.97274494}
+  m_LocalPosition: {x: 0.3722959, y: 0.49514088, z: -1.1876229}
+  m_LocalScale: {x: 3.9865115, y: 1.1452388, z: 1.4727843}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 57527720}
+  m_LocalEulerAnglesHint: {x: 15.438, y: -22.147, z: -1.512}
+--- !u!81 &2027938987
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027938985}
+  m_Enabled: 0
+--- !u!20 &2027938988
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027938985}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 4
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1001 &6258805335627078812
 PrefabInstance:
   m_ObjectHideFlags: 0
