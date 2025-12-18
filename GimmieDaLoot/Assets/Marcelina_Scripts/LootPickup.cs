@@ -58,7 +58,7 @@ public class LootPickup : MonoBehaviour
             Debug.LogWarning("No InventoryManager.Instance found in scene!");
         }
 
-        // stop ambient sound & play pickup sound
+        // stop ambient fortnite chest sound
         if (audioSource != null)
         {
             audioSource.Stop();
@@ -69,7 +69,7 @@ public class LootPickup : MonoBehaviour
             }
         }
 
-        // Destroy after sound (or immediately if no sound)
+        // destroy after
         float delay = (pickupSound != null) ? pickupSound.length : 0.1f;
         Destroy(gameObject, delay);
     }
