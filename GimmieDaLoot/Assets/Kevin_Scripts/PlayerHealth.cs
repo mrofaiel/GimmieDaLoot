@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;   // <-- required for scene loading
 
 public class PlayerHealth : MonoBehaviour
 {
+
+
+[Header("UI")]
+[SerializeField] private HealthBarController healthBarController;
+
     [Header("Player Health Settings")]
     public float maxHealth = 100f;
     public float currentHealth;
@@ -21,6 +26,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
 
         Debug.Log("Player took damage: " + amount + " | Current HP: " + currentHealth);
+    if (healthBarController != null)
+    {
+        healthBarController.TakeDamage(1);
+    }
 
         if (currentHealth <= 0f)
         {
