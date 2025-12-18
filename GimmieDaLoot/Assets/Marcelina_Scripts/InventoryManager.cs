@@ -5,13 +5,13 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
     [Header("Inventory Slots (HUD icons)")]
-    public GameObject[] slots = new GameObject[4];   // drag your 4 HUD objects here
+    public GameObject[] slots = new GameObject[4];   // creating slot options for the inventory
 
     private int nextFreeSlot = 0;
 
     private void Awake()
     {
-        // Simple singleton so LootPickup can call InventoryManager.Instance
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -22,7 +22,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        // Hide all slots at the start
+        // making sure all inventory slots are hidden in the beginning to show empty inventory
         foreach (var slot in slots)
         {
             if (slot != null)
@@ -30,6 +30,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // adds an item to the next empty slot each time it gets picked up
     public void AddLoot(string lootId)
     {
         if (nextFreeSlot >= slots.Length)
