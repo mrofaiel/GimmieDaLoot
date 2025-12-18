@@ -1,34 +1,31 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;   // <-- Needed for loading the win scene
+using UnityEngine.SceneManagement;   // loads win scene when 4 
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(AudioSource))]
 public class LootPickup : MonoBehaviour
 {
-    // 🔢 Total number of loot pieces in the level
+    // total number of pieces of loot 
     public static int totalLootInLevel = 4;
 
-    // 🔢 How many have been collected so far
+    // number of pieces of loot collected
     public static int lootCollected = 0;
 
     [Header("Spin")]
     public float rotateSpeed = 60f;
 
     [Header("Loot Info")]
-    public string lootId = "DefaultLoot";   // set per loot prefab (ApplePie, Matcha, etc.)
-
-    [Header("Pickup Sound (optional)")]
-    public AudioClip pickupSound;           // sound to play when actually picked up
+    public string lootId = "DefaultLoot";   // setting loot per prefab
 
     private AudioSource audioSource;
 
     private void Reset()
     {
-        // Ensure collider is a trigger
+        // collider is a trigger
         var col = GetComponent<Collider>();
         col.isTrigger = true;
 
-        // Set up the AudioSource for the idle 3D hum
+        // fortnite chest audio
         var a = GetComponent<AudioSource>();
         a.playOnAwake = true;
         a.loop = true;
@@ -44,23 +41,22 @@ public class LootPickup : MonoBehaviour
 
     private void Update()
     {
-        // Spin around Y axis
+        // loot spins
         transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug info so you can see what hits it
+        
         Debug.Log($"Loot trigger hit by '{other.name}', root = '{other.transform.root.name}', root tag = {other.transform.root.tag}");
 
-        // Check tag on the ROOT object (e.g. Kitty_001), not just the child collider
         Transform root = other.transform.root;
         if (!root.CompareTag("Player"))
             return;
 
         Debug.Log($"Picked up loot: {lootId}");
 
-        // 🔹 1. Add this loot to the inventory
+        // adding loot to inventory
         if (InventoryManager.Instance != null)
         {
             InventoryManager.Instance.AddLoot(lootId);
@@ -70,7 +66,7 @@ public class LootPickup : MonoBehaviour
             Debug.LogWarning("No InventoryManager.Instance found in scene!");
         }
 
-        // 🔹 2. Stop the idle hum and optionally play a pickup sound
+        // stops the fortnite chest noise
         if (audioSource != null)
         {
             audioSource.Stop();
@@ -81,18 +77,17 @@ public class LootPickup : MonoBehaviour
             }
         }
 
-        // 🔹 3. Count this loot and check win condition
+        // count it as one loot collected
         lootCollected++;
         Debug.Log($"Loot collected: {lootCollected}/{totalLootInLevel}");
 
         if (lootCollected >= totalLootInLevel)
         {
-            // Load your win scene — be sure this name matches the Build Settings scene name
+            // loads win scene
             SceneManager.LoadScene("WinScene");
         }
 
-        // 🔹 4. Remove the pickup from the world
-        // (small delay so pickupSound can start)
+        // makes the loot disappear
         Destroy(gameObject, 0.1f);
     }
 }
