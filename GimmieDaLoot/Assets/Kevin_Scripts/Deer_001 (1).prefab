@@ -1837,6 +1837,62 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8618372925008014451}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[0].lootId
+      value: ApplePie3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[1].lootId
+      value: Miffy3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[2].lootId
+      value: Smiski3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[3].lootId
+      value: Matcha3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[0].slotObj
+      value: 
+      objectReference: {fileID: 7746189323638759821}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[1].slotObj
+      value: 
+      objectReference: {fileID: 6682906167522777577}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[2].slotObj
+      value: 
+      objectReference: {fileID: 1919432590387531472}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: slots.Array.data[3].slotObj
+      value: 
+      objectReference: {fileID: 3394364343232924092}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.data[0].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ce9fb092aa96a415883a4a062482fb4d, type: 3}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.data[0].lootId
+      value: ApplePie3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.data[1].lootId
+      value: Matcha3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.data[2].lootId
+      value: Smiski3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188171957182570218, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+      propertyPath: lootIcons.Array.data[3].lootId
+      value: Miffy3D
+      objectReference: {fileID: 0}
     - target: {fileID: 7127733468861003020, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1942,3 +1998,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c0829339f9d4afdbeca6d359406113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1919432590387531472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7683969782943454301, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+  m_PrefabInstance: {fileID: 8070943161128934029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3394364343232924092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6853058518259585841, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+  m_PrefabInstance: {fileID: 8070943161128934029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6682906167522777577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3224493544542765924, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+  m_PrefabInstance: {fileID: 8070943161128934029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7746189323638759821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981089249337555712, guid: b27f71376404746e597bfb08a8eb29ae, type: 3}
+  m_PrefabInstance: {fileID: 8070943161128934029}
+  m_PrefabAsset: {fileID: 0}

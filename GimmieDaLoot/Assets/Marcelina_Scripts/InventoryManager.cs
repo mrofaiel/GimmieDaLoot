@@ -1,17 +1,29 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    [Header("Inventory Slots (HUD icons)")]
-    public GameObject[] slots = new GameObject[4];   // creating slot options for the inventory
+    [System.Serializable]
+    public class InventorySlot
+    {
+        public string lootId;      // must match LootPickup.lootId
+        public GameObject slotObj; // the HUD icon GameObject
+        [HideInInspector] public bool filled;
+    }
 
-    private int nextFreeSlot = 0;
+    [Header("Inventory Slots (one per item)")]
+    public InventorySlot[] slots;
+
+    [Header("Win Settings")]
+    public int requiredLootCount = 4;      // number of unique items to win
+    public string winSceneName = "WinScene";
+
+    private int uniqueCollected = 0;
 
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -22,31 +34,51 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        // making sure all inventory slots are hidden in the beginning to show empty inventory
-        foreach (var slot in slots)
+        // hide all slot icons at start
+        foreach (var s in slots)
         {
-            if (slot != null)
-                slot.SetActive(false);
+            if (s.slotObj != null)
+                s.slotObj.SetActive(false);
+
+            s.filled = false;
         }
+
+        uniqueCollected = 0;
     }
 
-    // adds an item to the next empty slot each time it gets picked up
     public void AddLoot(string lootId)
     {
-        if (nextFreeSlot >= slots.Length)
+        // find the slot configured for this lootId
+        for (int i = 0; i < slots.Length; i++)
         {
-            Debug.Log("Inventory full! Could not add: " + lootId);
-            return;
+            var s = slots[i];
+
+            if (s.lootId == lootId)
+            {
+                if (s.filled)
+                {
+                    Debug.Log($"Loot '{lootId}' already collected; ignoring.");
+                    return;
+                }
+
+                s.filled = true;
+                uniqueCollected++;
+
+                if (s.slotObj != null)
+                    s.slotObj.SetActive(true);
+
+                Debug.Log($"Activated slot {i} for '{lootId}'. Unique collected: {uniqueCollected}/{requiredLootCount}");
+
+                if (uniqueCollected >= requiredLootCount)
+                {
+                    Debug.Log("All required loot collected, loading win scene.");
+                    SceneManager.LoadScene(winSceneName);
+                }
+
+                return;
+            }
         }
 
-        GameObject slotObj = slots[nextFreeSlot];
-        if (slotObj != null)
-        {
-            slotObj.SetActive(true);
-            Debug.Log($"Inventory slot {nextFreeSlot} filled with {lootId}");
-        }
-
-        nextFreeSlot++;
+        Debug.LogWarning($"No inventory slot configured for lootId '{lootId}'.");
     }
 }
-
