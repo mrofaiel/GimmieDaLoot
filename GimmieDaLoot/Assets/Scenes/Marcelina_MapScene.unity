@@ -1790,6 +1790,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8523924822951174164, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
+      propertyPath: lootId
+      value: Smiski3D
+      objectReference: {fileID: 0}
     - target: {fileID: 3135386959971116295, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.14
@@ -4012,6 +4016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8523924822951174164, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
+      propertyPath: lootId
+      value: Matcha3D
+      objectReference: {fileID: 0}
     - target: {fileID: 3135386959971116295, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 90.92
@@ -4539,6 +4547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8523924822951174164, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
+      propertyPath: lootId
+      value: Miffy3D
+      objectReference: {fileID: 0}
     - target: {fileID: 3135386959971116295, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.86
@@ -5072,6 +5084,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8523924822951174164, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
+      propertyPath: lootId
+      value: ApplePie3D
+      objectReference: {fileID: 0}
     - target: {fileID: 570144544314917590, guid: 25ecc27cd90f3094596426e96c59bf67, type: 3}
       propertyPath: m_IsActive
       value: 1
