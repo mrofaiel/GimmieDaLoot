@@ -20,7 +20,7 @@ public class DogMovement : MonoBehaviour
     [SerializeField] float biteRange = 1.5f;
 
     [Header("Animation")]
-    [SerializeField] Animator animator;     // drag Dog_001 (with Animator) here
+    [SerializeField] Animator animator;     
     [SerializeField] string vertParam = "Vert";
     [SerializeField] string stateParam = "State";
 
@@ -32,7 +32,7 @@ public class DogMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;                      // we move via transform, not physics forces
+        rb.isKinematic = true;                      
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         health = GetComponent<EnemyHealthTest>();
@@ -40,7 +40,7 @@ public class DogMovement : MonoBehaviour
 
     void Update()
     {
-        // If this dog is dead, do nothing
+        // if this dog is dead, do nothing and be idle 
         if (health != null && health.IsDead)
         {
             UpdateAnimator(false);
@@ -48,8 +48,7 @@ public class DogMovement : MonoBehaviour
         }
 
         bool isMovingThisFrame = false;
-
-        // Find player if we don't have one yet
+        // if no player detected then search inside radius 
         if (player == null)
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius);
@@ -57,18 +56,18 @@ public class DogMovement : MonoBehaviour
             {
                 if (hit.CompareTag(playerTag))
                 {
-                    player = hit.transform;
+                    player = hit.transform; //lock onto player 
                     break;
                 }
             }
 
             UpdateAnimator(false);
-            return;
+            return; //dont chase until a target is found 
         }
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        // Lose target if they get far away
+        // lose target if they get far away
         if (distance > detectionRadius * 1.5f)
         {
             player = null;
@@ -76,16 +75,16 @@ public class DogMovement : MonoBehaviour
             return;
         }
 
-        // Rotate toward player
+        // rotate toward player
         Vector3 direction = (player.position - transform.position);
-        direction.y = 0f;
+        direction.y = 0f; //rotation on horizontal plane only 
         if (direction.sqrMagnitude > 0.01f)
         {
             Quaternion lookRot = Quaternion.LookRotation(direction.normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * turnSpeed);
         }
 
-        // Move toward player, but don't overlap too much
+        // move toward player, but don't overlap too much
         if (distance > stopDistance)
         {
             Vector3 move = transform.forward * chaseSpeed * Time.deltaTime;
@@ -101,7 +100,7 @@ public class DogMovement : MonoBehaviour
 
         UpdateAnimator(isMovingThisFrame);
     }
-
+    //updates animation parameters for idle/run behavior 
     void UpdateAnimator(bool isMoving)
     {
         if (animator == null) return;
@@ -111,7 +110,7 @@ public class DogMovement : MonoBehaviour
         animator.SetFloat(stateParam, isMoving ? 1f : 0f);
     }
 
-IEnumerator Attack()
+IEnumerator Attack() //bite attack coroutine with cooldown 
 {
     canAttack = false;
 
@@ -122,22 +121,22 @@ IEnumerator Attack()
         PlayerHealth ph = player.GetComponent<PlayerHealth>();
         if (ph != null)
         {
-            ph.TakeDamage(biteDamage);  // <-- THIS DOES REAL DAMAGE
+            ph.TakeDamage(biteDamage); //apply damage to player 
         }
     }
-
+    //wait before allowing another attack 
     yield return new WaitForSeconds(attackCooldown);
     canAttack = true;
 }
 
 
 #if UNITY_EDITOR
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() //draw radius indicators in scene view 
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        Gizmos.DrawWireSphere(transform.position, detectionRadius); //player detection radius 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, biteRange);
+        Gizmos.DrawWireSphere(transform.position, biteRange); //attack range 
     }
 #endif
 }
