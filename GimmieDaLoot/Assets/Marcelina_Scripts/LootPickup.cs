@@ -17,11 +17,15 @@ public class LootPickup : MonoBehaviour
     [Header("Loot Info")]
     public string lootId = "DefaultLoot";   // setting loot per prefab
 
+    // didnt use
+    [Header("Pickup Sound (optional)")]
+    public AudioClip pickupSound;
+
     private AudioSource audioSource;
 
     private void Reset()
     {
-        // collider is a trigger
+        // collider is trigger
         var col = GetComponent<Collider>();
         col.isTrigger = true;
 
@@ -47,7 +51,7 @@ public class LootPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         Debug.Log($"Loot trigger hit by '{other.name}', root = '{other.transform.root.name}', root tag = {other.transform.root.tag}");
 
         Transform root = other.transform.root;
@@ -56,7 +60,7 @@ public class LootPickup : MonoBehaviour
 
         Debug.Log($"Picked up loot: {lootId}");
 
-        // adding loot to inventory
+        // adds loot to inventory
         if (InventoryManager.Instance != null)
         {
             InventoryManager.Instance.AddLoot(lootId);
@@ -77,7 +81,7 @@ public class LootPickup : MonoBehaviour
             }
         }
 
-        // count it as one loot collected
+        // add to total number of loot collected
         lootCollected++;
         Debug.Log($"Loot collected: {lootCollected}/{totalLootInLevel}");
 
@@ -87,7 +91,7 @@ public class LootPickup : MonoBehaviour
             SceneManager.LoadScene("WinScene");
         }
 
-        // makes the loot disappear
+        // deletes the object
         Destroy(gameObject, 0.1f);
     }
 }
