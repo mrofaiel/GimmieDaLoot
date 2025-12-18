@@ -469,6 +469,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8330252736907980500, guid: d9752cbeadc1f49f7b750c4f2f938953, type: 3}
   m_PrefabInstance: {fileID: 279546346861691779}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8755134634139160197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8818427934385016070, guid: d9752cbeadc1f49f7b750c4f2f938953, type: 3}
+  m_PrefabInstance: {fileID: 279546346861691779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c0829339f9d4afdbeca6d359406113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1429574901651017130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972ea7d0727d04c9dbd0b63aedc6aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarController: {fileID: 0}
+  healthBarController: {fileID: 8755134634139160197}
   maxHealth: 15
   currentHealth: 0
   respawnOnDeath: 0
