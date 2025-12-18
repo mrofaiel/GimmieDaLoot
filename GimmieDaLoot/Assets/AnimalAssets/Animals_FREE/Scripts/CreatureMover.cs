@@ -48,39 +48,40 @@ namespace Controller
 
         private void OnValidate()
         {
-            m_WalkSpeed = Mathf.Max(m_WalkSpeed, 0f);
+            m_WalkSpeed = Mathf.Max(m_WalkSpeed, 0f); //ensure speeds are positive and run speed not below walk speed
             m_RunSpeed = Mathf.Max(m_RunSpeed, m_WalkSpeed);
-
+            //update movement stats in handler while in editor if already 
             m_Movement?.SetStats(m_WalkSpeed / 3.6f, m_RunSpeed / 3.6f, m_RotateSpeed, m_JumpHeight, m_Space);
         }
 
         private void Awake()
         {
-            m_Transform = transform;
+            m_Transform = transform; //cache components 
             m_Controller = GetComponent<CharacterController>();
             m_Animator = GetComponent<Animator>();
-
+            //initlize handlers with current config 
             m_Movement = new MovementHandler(m_Controller, m_Transform, m_WalkSpeed, m_RunSpeed, m_RotateSpeed, m_JumpHeight, m_Space);
             m_Animation = new AnimationHandler(m_Animator, m_VerticalID, m_StateID);
         }
 
         private void Update()
-        {
+        { //drive movement logic each frame 
             m_Movement.Move(Time.deltaTime, in m_Axis, in m_Target, m_IsRun, m_IsMoving, out var animAxis, out var isAir);
+            //drive animation based on moveement output and run/walk state 
             m_Animation.Animate(in animAxis, m_IsRun ? 1f : 0f, Time.deltaTime);
         }
 
         private void OnAnimatorIK()
-        {
+        { //apply ik-based lookat toward target using configured look weights
             m_Animation.AnimateIK(in m_Target, m_LookWeight);
         }
-
+        //called externally to feed movement and run/jump flags 
         public void SetInput(in Vector2 axis, in Vector3 target, in bool isRun, in bool isJump)
         {
             m_Axis = axis;
             m_Target = target;
             m_IsRun = isRun;
-
+            //when axis is nearly zero, treat as not moving 
             if (m_Axis.sqrMagnitude < Mathf.Epsilon)
             {
                 m_Axis = Vector2.zero;
@@ -92,10 +93,10 @@ namespace Controller
                 m_IsMoving = true;
             }
         }
-
+        //called when charactercontroller hits another collider 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if(hit.normal.y > m_Controller.stepOffset)
+            if(hit.normal.y > m_Controller.stepOffset) //if we hit a surface with floor-like normal, use for movement projection
             {
                 m_Movement.SetSurface(hit.normal);
             }
@@ -130,7 +131,7 @@ namespace Controller
 
             private Space m_Space;
 
-            private readonly float m_Luft = 75f;
+            private readonly float m_Luft = 75f; //allowed angle tolerance before starting rotation when standing still
 
             private float m_TargetAngle;
             private bool m_IsRotating = false;
@@ -152,7 +153,7 @@ namespace Controller
 
                 m_Space = space;
             }
-
+            //update movement-related stats from outside 
             public void SetStats(float walkSpeed, float runSpeed, float rotateSpeed, float jumpHeight, Space space)
             {
                 m_WalkSpeed = walkSpeed;
@@ -161,30 +162,31 @@ namespace Controller
 
                 m_Space = space;
             }
-
+            //set the current ground normal for slope aware movement 
             public void SetSurface(in Vector3 normal)
             {
                 m_Normal = normal;
             }
-
+            //main movement entry point called creaturemove.update()
             public void Move(float deltaTime, in Vector2 axis, in Vector3 target, bool isRun, bool isMoving, out Vector2 animAxis, out bool isAir)
             {
+                //look direction: from character to target 
                 var cameraLook = Vector3.Normalize(target - m_Transform.position);
                 var targetForward = m_LastForward;
-
+                //convert 2d input axis to a world or local movement vector 
                 ConvertMovement(in axis, in cameraLook, out var movement);
                 if (movement.sqrMagnitude > 0.5f) {
                     m_LastForward = Vector3.Normalize(movement);
                 }
 
-                CaculateGravity(deltaTime, out isAir);
-                Displace(deltaTime, in movement, isRun);
-                Turn(in targetForward, isMoving);
-                UpdateRotation(deltaTime);
+                CaculateGravity(deltaTime, out isAir); //handle gravity and grounded state 
+                Displace(deltaTime, in movement, isRun); //apply displacement
+                Turn(in targetForward, isMoving); //rotate character toward last movement/target direction 
+                UpdateRotation(deltaTime); //smoothly rotate towards the computer target angle 
 
-                GenAnimationAxis(in movement, out animAxis);
+                GenAnimationAxis(in movement, out animAxis); //generate 2d axis for animation based on movement direction in chosen space
             }
-
+            //convert raw input axis to 3d world/local movement vector, projected onto ground nromal
             private void ConvertMovement(in Vector2 axis, in Vector3 targetForward, out Vector3 movement)
             {
                 Vector3 forward;
@@ -204,7 +206,7 @@ namespace Controller
                 movement = axis.x * right + axis.y * forward;
                 movement = Vector3.ProjectOnPlane(movement, m_Normal);
             }
-
+            //apply movement and gravity displacement through charactercontroller
             private void Displace(float deltaTime, in Vector3 movement, bool isRun)
             {
                 Vector3 displacement = (isRun ? m_RunSpeed : m_WalkSpeed) * movement;
@@ -213,7 +215,7 @@ namespace Controller
 
                 m_Controller.Move(displacement);
             }
-
+            //manage gravity accumulation and grounded/airborne state 
             private void CaculateGravity(float deltaTime, out bool isAir)
             {
                 m_jumpTimer = Mathf.Max(m_jumpTimer - deltaTime, 0f);
@@ -231,7 +233,7 @@ namespace Controller
                 m_GravityAcelleration += Physics.gravity * deltaTime;
                 return;
             }
-
+            //convert movement vector into animation-space 2d axis 
             private void GenAnimationAxis(in Vector3 movement, out Vector2 animAxis)
             {
                 if(m_Space == Space.Self)
@@ -243,7 +245,7 @@ namespace Controller
                     animAxis = new Vector2(Vector3.Dot(movement, Vector3.right), Vector3.Dot(movement, Vector3.forward));
                 }
             }
-
+            //decide when and how much to rotate toward target direction
             private void Turn(in Vector3 targetForward, bool isMoving)
             {
                 var angle = Vector3.SignedAngle(m_Transform.forward, Vector3.ProjectOnPlane(targetForward, Vector3.up), Vector3.up);
@@ -261,8 +263,8 @@ namespace Controller
 
                 m_TargetAngle = angle;
             }
-
-            private void UpdateRotation(float deltaTime)
+            //rortate character towards m_TargetAngle over time 
+            private void UpdateRotation(float deltaTime) 
             {
                 if(!m_IsRotating)
                 {
@@ -283,7 +285,7 @@ namespace Controller
                 m_Transform.Rotate(Vector3.up, rotDelta);
             }
         }
-
+        //handles animator paramegters and smoothing of input/state for animation 
         private class AnimationHandler
         {
             private readonly Animator m_Animator;

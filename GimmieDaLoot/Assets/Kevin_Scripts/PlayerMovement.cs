@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float xRotation = 0f;
 
     [Header("Animation")]
-    public Animator anim;          // drag the cat Animator here in Inspector
+    public Animator anim;          
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -29,21 +29,20 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-            xRotation = cameraTransform.localEulerAngles.x;
+            xRotation = cameraTransform.localEulerAngles.x; //initalize cameras vertical rotation based on current angle 
 
 
-        // If you forget to drag the Animator, try to grab it from children
+        //auto assign animator if not set 
         if (anim == null)
             anim = GetComponentInChildren<Animator>();
-
-        // Lock & hide mouse
+        //lock and hide mouse cursor for fps control 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible   = false;
     }
 
     void Update()
     {
-        RotateCameraWithMouse();
+        RotateCameraWithMouse(); //order of operations each frame 
         MoveWithWASD();
         HandleJump();
         ApplyGravity();
@@ -51,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveWithWASD()
     {
-        Vector3 move = Vector3.zero;
+        Vector3 move = Vector3.zero; //collect movement input 
 
         if (Input.GetKey(KeyCode.W)) move += transform.forward;
         if (Input.GetKey(KeyCode.S)) move -= transform.forward;
@@ -64,15 +63,14 @@ public class PlayerMovement : MonoBehaviour
         float animSpeed = Mathf.Clamp01(rawSpeed);
         if (anim != null)
         {
-            // This is the parameter your Kitty blend tree uses
             anim.SetFloat("Vert", animSpeed);
             anim.SetFloat("State", 0f);  // 0 = walk, change to 1f if you add run
         }
 
-        if (rawSpeed > 1f)
+        if (rawSpeed > 1f) //normalize so diagonal movement isnt faster 
             move.Normalize();
 
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move(move * moveSpeed * Time.deltaTime); //move character using charactercontroller 
     }
 
     void RotateCameraWithMouse()
@@ -89,31 +87,32 @@ public class PlayerMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * lookSpeed * Time.deltaTime;
     float mouseY = Input.GetAxis("Mouse Y") * lookSpeed * Time.deltaTime;
 
-    // Modify X rotation
+    // modify X rotation
     xRotation -= mouseY;
     xRotation = Mathf.Clamp(xRotation, minCameraX, maxCameraX);
 
-    // Keep the existing Y and Z rotation
+    // keep the existing Y and Z rotation
     Vector3 current = cameraTransform.localEulerAngles;
     cameraTransform.localRotation = Quaternion.Euler(xRotation, current.y, current.z);
 
-    // Rotate player horizontally
+    // rotate player horizontally
     transform.Rotate(Vector3.up * mouseX);
 
     }
 
     void HandleJump()
     {
+        // only jump on press and if cooldown elapsed 
         if (Time.time >= nextJumpTime && Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = jumpForce;
-            nextJumpTime = Time.time + jumpCooldown;
+            velocity.y = jumpForce; //start upward movement 
+            nextJumpTime = Time.time + jumpCooldown; //set next jump time 
         }
     }
 
     void ApplyGravity()
     {
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime; //apply downard acceleration
+        controller.Move(velocity * Time.deltaTime); //apply vertical movement through charactercontroller 
     }
 }
