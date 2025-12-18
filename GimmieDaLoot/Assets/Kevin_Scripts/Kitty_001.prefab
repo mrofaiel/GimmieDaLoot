@@ -1529,7 +1529,7 @@ CharacterController:
   m_Height: 0
   m_Radius: 0.07
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.1, z: 0}
@@ -1591,10 +1591,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 296168061865118300}
-  maxHealth: 10
+  maxHealth: 15
   currentHealth: 0
   respawnOnDeath: 0
   respawnPoint: {fileID: 0}
+  damageCooldown: 0.5
 --- !u!114 &4913740109832363950
 MonoBehaviour:
   m_ObjectHideFlags: 0

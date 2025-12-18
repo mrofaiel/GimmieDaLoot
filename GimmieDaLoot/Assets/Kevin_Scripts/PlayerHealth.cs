@@ -20,21 +20,37 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
+    private float nextDamageTime = 0f;
+    public float damageCooldown = 0.5f;
+
+    // public void TakeDamage(float amount)
+    // {
+    //     currentHealth -= amount;
+
+    //     Debug.Log("Player took damage: " + amount + " | Current HP: " + currentHealth);
+    // if (healthBarController != null)
+    // {
+    //     healthBarController.TakeDamage(1);
+    // }
+
+    //     if (currentHealth <= 0f)
+    //     {
+    //         Die();
+    //     }
+    // }
 
     public void TakeDamage(float amount)
     {
+        if (Time.time < nextDamageTime) return;
+        nextDamageTime = Time.time + damageCooldown;
+
         currentHealth -= amount;
+        Debug.Log($"Player took damage: {amount} | Current HP: {currentHealth}");
 
-        Debug.Log("Player took damage: " + amount + " | Current HP: " + currentHealth);
-    if (healthBarController != null)
-    {
-        healthBarController.TakeDamage(1);
-    }
+        if (healthBarController != null)
+            healthBarController.TakeDamage(1);
 
-        if (currentHealth <= 0f)
-        {
-            Die();
-        }
+        if (currentHealth <= 0f) Die();
     }
 
     public void Heal(float amount)
