@@ -21,7 +21,7 @@ public class PlayerCannon_Movement : MonoBehaviour
     private float xRotation = 0f;
 
     [Header("Animation (Optional)")]
-    public Animator anim;   // optional
+    public Animator anim;   
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -40,7 +40,6 @@ public class PlayerCannon_Movement : MonoBehaviour
         if (cameraTransform != null)
             xRotation = cameraTransform.localEulerAngles.x;
 
-        // Optional animator auto-grab
         if (anim == null)
             anim = GetComponentInChildren<Animator>();
 
@@ -60,7 +59,7 @@ public class PlayerCannon_Movement : MonoBehaviour
 
     void MoveWithWASD_CameraRelative()
     {
-        // Camera-relative directions (flattened so you don't fly up/down)
+        // Camera-relative directions 
         Vector3 camForward = cameraTransform.forward;
         Vector3 camRight = cameraTransform.right;
         camForward.y = 0f;
@@ -76,7 +75,6 @@ public class PlayerCannon_Movement : MonoBehaviour
 
         float rawSpeed = move.magnitude;
 
-        // Optional animation (safe if you don’t use it)
         if (anim != null)
         {
             float animSpeed = Mathf.Clamp01(rawSpeed);
@@ -95,20 +93,20 @@ public class PlayerCannon_Movement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * lookSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * lookSpeed * Time.deltaTime;
 
-        // Pitch camera up/down
+        // pitch camera up/down
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, minCameraX, maxCameraX);
 
-        // Only set X for camera pitch
+        // only set X for camera pitch
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Yaw the player/cannon left/right
+        // yaw the player/cannon left/right
         transform.Rotate(Vector3.up * mouseX);
     }
 
     void HandleJump()
     {
-        // Only jump if grounded + cooldown
+        // only jump if grounded + cooldown
         if (controller.isGrounded && Time.time >= nextJumpTime && Input.GetKeyDown(KeyCode.Space))
         {
             velocity.y = jumpForce;
@@ -118,7 +116,7 @@ public class PlayerCannon_Movement : MonoBehaviour
 
     void ApplyGravity()
     {
-        // Keep grounded stick so you don't “float”
+        // keep grounded stick 
         if (controller.isGrounded && velocity.y < 0f)
             velocity.y = -2f;
 
