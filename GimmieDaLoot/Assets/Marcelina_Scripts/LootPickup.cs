@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;   // <-- Needed for loading the win scene
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(AudioSource))]
 public class LootPickup : MonoBehaviour
 {
+    // 🔢 Total number of loot pieces in the level
+    public static int totalLootInLevel = 4;
+
+    // 🔢 How many have been collected so far
+    public static int lootCollected = 0;
+
     [Header("Spin")]
     public float rotateSpeed = 60f;
 
@@ -74,7 +81,17 @@ public class LootPickup : MonoBehaviour
             }
         }
 
-        // 🔹 3. Remove the pickup from the world
+        // 🔹 3. Count this loot and check win condition
+        lootCollected++;
+        Debug.Log($"Loot collected: {lootCollected}/{totalLootInLevel}");
+
+        if (lootCollected >= totalLootInLevel)
+        {
+            // Load your win scene — be sure this name matches the Build Settings scene name
+            SceneManager.LoadScene("WinScene");
+        }
+
+        // 🔹 4. Remove the pickup from the world
         // (small delay so pickupSound can start)
         Destroy(gameObject, 0.1f);
     }

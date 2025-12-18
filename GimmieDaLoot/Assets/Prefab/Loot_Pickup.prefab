@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 60
   lootId: DefaultLoot
+  pickupSound: {fileID: 0}
 --- !u!82 &1283925544632083510
 AudioSource:
   m_ObjectHideFlags: 0
